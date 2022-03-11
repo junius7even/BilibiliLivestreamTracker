@@ -8,9 +8,19 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State var room: LiveRoom?
+    @EnvironmentObject var model: ContentModel
+    static var BluesisIDCollection: [String] = [
+        BluesisConstants.Carol_ID,
+        BluesisConstants.Jiaran_ID,
+        BluesisConstants.Nailin_ID,
+        BluesisConstants.Xiangwan_ID,
+        BluesisConstants.Bella_ID,
+        BluesisConstants.Merry_ID,
+        BluesisConstants.Umi_ID,
+        BluesisConstants.Shio_ID
+    ]
+    @State var liveStatus: Int = -1
     @State var liveColor: Color = Color.gray
-    @StateObject var viewModel = Model()
     
     var body: some View {
         VStack {
@@ -21,26 +31,18 @@ struct ContentView: View {
                 .padding()
             
             HStack {
-                Text("Live status: ")
+                Text("\(model.userDetails.data.name ?? "failed"): \(model.roomDetails.data.live_status ?? -1)")
                 Circle()
                     .frame(width: 30, height: 30)
                     .foregroundColor(liveColor)
             }
             Button("REFRESH") {
-                viewModel.getRoomStatus()
-                if room?.live_status == 1 {
-                    liveColor = Color.green
-                } else if room?.live_status == 0 {
-                    liveColor = Color.red
-                } else {
-                    liveColor = Color.gray
-                }
+                model.getRoomStatus(roomId: "6")
             }
             
         }.onAppear {
-            viewModel.getRoomStatus()
+            model.getRoomStatus(roomId: "6")
         }
-        
     }
 }
 
