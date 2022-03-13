@@ -22,7 +22,17 @@ struct MainPageView: View {
                 }
             }.onAppear {
                 model.getAllLiveRoomStatus(IdArray: BluesisConstants.BluesisIDCollection)
-        }.navigationTitle("哔哩哔哩Tracker v1.0")//.getAllRooomStatus(IdArray: BluesisConstants.BluesisIDCollection)
+        }
+            .navigationTitle("哔哩哔哩Tracker v1.0")//.getAllRooomStatus(IdArray: BluesisConstants.BluesisIDCollection)
+            .toolbar {
+                HStack {
+                    Image(systemName: "arrow.clockwise")
+                    Button("Refresh") {
+                        
+                    }
+                }
+                
+            }
         }
     }
 }
