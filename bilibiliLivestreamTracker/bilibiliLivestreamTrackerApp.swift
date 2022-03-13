@@ -11,7 +11,7 @@ import SwiftUI
 struct bilibiliLivestreamTrackerApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainPageView().environmentObject(ContentModel())
         }
     }
 }
