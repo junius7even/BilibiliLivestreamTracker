@@ -7,7 +7,8 @@
 
 import Foundation
 
-struct User: Decodable {
+struct Streamer: Decodable, Identifiable {
+    let id = UUID().uuidString
     var mid: Int?
     var name: String?
     var face: String?

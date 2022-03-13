@@ -9,5 +9,5 @@ import Foundation
 
 struct Constants {
     static var ROOMSEARCH_API_URL = "https://api.live.bilibili.com/room/v1/Room/room_init?id="
-    static var USERSEARCH_API_RUL = "https://api.bilibili.com/x/space/channel/index?mid="
+    static var USERSEARCH_API_RUL = "https://api.bilibili.com/x/space/acc/info?mid="
 }

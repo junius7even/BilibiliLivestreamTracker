@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		582795EB27DE78FF00EB9003 /* URLImage in Frameworks */ = {isa = PBXBuildFile; productRef = 582795EA27DE78FF00EB9003 /* URLImage */; };
+		582795ED27DE791500EB9003 /* ProfileCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582795EC27DE791500EB9003 /* ProfileCard.swift */; };
 		5857565227D9ABEE009DDF48 /* bilibiliLivestreamTrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5857565127D9ABEE009DDF48 /* bilibiliLivestreamTrackerApp.swift */; };
-		5857565427D9ABEE009DDF48 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5857565327D9ABEE009DDF48 /* ContentView.swift */; };
 		5857565627D9ABF0009DDF48 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5857565527D9ABF0009DDF48 /* Assets.xcassets */; };
 		5857565927D9ABF0009DDF48 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5857565827D9ABF0009DDF48 /* Preview Assets.xcassets */; };
 		5857566227D9AC24009DDF48 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5857566127D9AC24009DDF48 /* Constants.swift */; };
@@ -16,15 +17,15 @@
 		58BC358D27DAD68D0069729F /* RoomSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58BC358C27DAD68D0069729F /* RoomSearch.swift */; };
 		58BC359027DAD8AA0069729F /* ContentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58BC358F27DAD8AA0069729F /* ContentModel.swift */; };
 		58BC359327DAE19C0069729F /* BluesisConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58BC359227DAE19C0069729F /* BluesisConstants.swift */; };
-		58BC359927DAED730069729F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58BC359827DAED730069729F /* User.swift */; };
-		58BC359B27DAED790069729F /* UserSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58BC359A27DAED790069729F /* UserSearch.swift */; };
-		58BC359D27DAF05A0069729F /* BluesisView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58BC359C27DAF05A0069729F /* BluesisView.swift */; };
+		58BC359927DAED730069729F /* Streamer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58BC359827DAED730069729F /* Streamer.swift */; };
+		58BC359B27DAED790069729F /* StreamerSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58BC359A27DAED790069729F /* StreamerSearch.swift */; };
+		58BC359D27DAF05A0069729F /* MainPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58BC359C27DAF05A0069729F /* MainPageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		582795EC27DE791500EB9003 /* ProfileCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCard.swift; sourceTree = "<group>"; };
 		5857564E27D9ABEE009DDF48 /* bilibiliLivestreamTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bilibiliLivestreamTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5857565127D9ABEE009DDF48 /* bilibiliLivestreamTrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bilibiliLivestreamTrackerApp.swift; sourceTree = "<group>"; };
-		5857565327D9ABEE009DDF48 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		5857565527D9ABF0009DDF48 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5857565827D9ABF0009DDF48 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		5857566127D9AC24009DDF48 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -32,9 +33,10 @@
 		58BC358C27DAD68D0069729F /* RoomSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomSearch.swift; sourceTree = "<group>"; };
 		58BC358F27DAD8AA0069729F /* ContentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentModel.swift; sourceTree = "<group>"; };
 		58BC359227DAE19C0069729F /* BluesisConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluesisConstants.swift; sourceTree = "<group>"; };
-		58BC359827DAED730069729F /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		58BC359A27DAED790069729F /* UserSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSearch.swift; sourceTree = "<group>"; };
-		58BC359C27DAF05A0069729F /* BluesisView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluesisView.swift; sourceTree = "<group>"; };
+		58BC359827DAED730069729F /* Streamer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Streamer.swift; sourceTree = "<group>"; };
+		58BC359A27DAED790069729F /* StreamerSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamerSearch.swift; sourceTree = "<group>"; };
+		58BC359C27DAF05A0069729F /* MainPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageView.swift; sourceTree = "<group>"; };
+		58C31DA827DE7D9B000C98B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,6 +44,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				582795EB27DE78FF00EB9003 /* URLImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -52,6 +55,7 @@
 			isa = PBXGroup;
 			children = (
 				5857565027D9ABEE009DDF48 /* bilibiliLivestreamTracker */,
+				5857565527D9ABF0009DDF48 /* Assets.xcassets */,
 				5857564F27D9ABEE009DDF48 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -67,10 +71,11 @@
 		5857565027D9ABEE009DDF48 /* bilibiliLivestreamTracker */ = {
 			isa = PBXGroup;
 			children = (
+				5857565127D9ABEE009DDF48 /* bilibiliLivestreamTrackerApp.swift */,
+				58C31DA827DE7D9B000C98B5 /* Info.plist */,
+				58C31DA927DE7EFB000C98B5 /* Models */,
 				58BC359527DAE4EA0069729F /* ViewModels */,
 				58BC358E27DAD8850069729F /* Views */,
-				5857565127D9ABEE009DDF48 /* bilibiliLivestreamTrackerApp.swift */,
-				5857565527D9ABF0009DDF48 /* Assets.xcassets */,
 				5857566927D9B7BD009DDF48 /* ConstantTerms */,
 				5857565727D9ABF0009DDF48 /* Preview Content */,
 			);
@@ -97,8 +102,8 @@
 		58BC358E27DAD8850069729F /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				5857565327D9ABEE009DDF48 /* ContentView.swift */,
-				58BC359C27DAF05A0069729F /* BluesisView.swift */,
+				58BC359C27DAF05A0069729F /* MainPageView.swift */,
+				582795EC27DE791500EB9003 /* ProfileCard.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -107,8 +112,6 @@
 			isa = PBXGroup;
 			children = (
 				58BC358F27DAD8AA0069729F /* ContentModel.swift */,
-				58BC359727DAED640069729F /* User Models */,
-				58BC359627DAED580069729F /* Room Models */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -122,13 +125,22 @@
 			path = "Room Models";
 			sourceTree = "<group>";
 		};
-		58BC359727DAED640069729F /* User Models */ = {
+		58BC359727DAED640069729F /* Streamer Models */ = {
 			isa = PBXGroup;
 			children = (
-				58BC359827DAED730069729F /* User.swift */,
-				58BC359A27DAED790069729F /* UserSearch.swift */,
+				58BC359827DAED730069729F /* Streamer.swift */,
+				58BC359A27DAED790069729F /* StreamerSearch.swift */,
 			);
-			path = "User Models";
+			path = "Streamer Models";
+			sourceTree = "<group>";
+		};
+		58C31DA927DE7EFB000C98B5 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				58BC359627DAED580069729F /* Room Models */,
+				58BC359727DAED640069729F /* Streamer Models */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -147,6 +159,9 @@
 			dependencies = (
 			);
 			name = bilibiliLivestreamTracker;
+			packageProductDependencies = (
+				582795EA27DE78FF00EB9003 /* URLImage */,
+			);
 			productName = bilibiliLivestreamTracker;
 			productReference = 5857564E27D9ABEE009DDF48 /* bilibiliLivestreamTracker.app */;
 			productType = "com.apple.product-type.application";
@@ -175,6 +190,9 @@
 				Base,
 			);
 			mainGroup = 5857564527D9ABEE009DDF48;
+			packageReferences = (
+				582795E927DE78FF00EB9003 /* XCRemoteSwiftPackageReference "url-image" */,
+			);
 			productRefGroup = 5857564F27D9ABEE009DDF48 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -201,13 +219,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5857565427D9ABEE009DDF48 /* ContentView.swift in Sources */,
+				582795ED27DE791500EB9003 /* ProfileCard.swift in Sources */,
 				5857565227D9ABEE009DDF48 /* bilibiliLivestreamTrackerApp.swift in Sources */,
 				5857566227D9AC24009DDF48 /* Constants.swift in Sources */,
-				58BC359B27DAED790069729F /* UserSearch.swift in Sources */,
+				58BC359B27DAED790069729F /* StreamerSearch.swift in Sources */,
 				58BC359027DAD8AA0069729F /* ContentModel.swift in Sources */,
-				58BC359927DAED730069729F /* User.swift in Sources */,
-				58BC359D27DAF05A0069729F /* BluesisView.swift in Sources */,
+				58BC359927DAED730069729F /* Streamer.swift in Sources */,
+				58BC359D27DAF05A0069729F /* MainPageView.swift in Sources */,
 				58BC358D27DAD68D0069729F /* RoomSearch.swift in Sources */,
 				58BC358B27DAD62F0069729F /* Room.swift in Sources */,
 				58BC359327DAE19C0069729F /* BluesisConstants.swift in Sources */,
@@ -344,6 +362,7 @@
 				DEVELOPMENT_TEAM = C3KCZH7929;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = bilibiliLivestreamTracker/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -354,7 +373,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.toreimi.bilibiliLivestreamTracker;
+				PRODUCT_BUNDLE_IDENTIFIER = com.haotianmo.bilibiliLivestreamTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -373,6 +392,7 @@
 				DEVELOPMENT_TEAM = C3KCZH7929;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = bilibiliLivestreamTracker/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -383,7 +403,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.toreimi.bilibiliLivestreamTracker;
+				PRODUCT_BUNDLE_IDENTIFIER = com.haotianmo.bilibiliLivestreamTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -413,6 +433,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		582795E927DE78FF00EB9003 /* XCRemoteSwiftPackageReference "url-image" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/dmytro-anokhin/url-image";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		582795EA27DE78FF00EB9003 /* URLImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 582795E927DE78FF00EB9003 /* XCRemoteSwiftPackageReference "url-image" */;
+			productName = URLImage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 5857564627D9ABEE009DDF48 /* Project object */;
 }

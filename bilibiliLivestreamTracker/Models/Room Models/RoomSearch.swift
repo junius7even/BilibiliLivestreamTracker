@@ -8,7 +8,7 @@
 import Foundation
 
 struct RoomSearch: Decodable, Identifiable {
-    var id = UUID()
+    let id = UUID().uuidString
     var data = Room()
     var code = 0
 }

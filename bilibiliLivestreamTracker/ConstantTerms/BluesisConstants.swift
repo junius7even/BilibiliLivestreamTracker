@@ -9,6 +9,7 @@ import Foundation
 
 struct BluesisConstants {
     static var BluesisIDCollection: [String] = [
+        BluesisConstants.League_ID,
         BluesisConstants.Carol_ID,
         BluesisConstants.Jiaran_ID,
         BluesisConstants.Nailin_ID,
@@ -18,6 +19,7 @@ struct BluesisConstants {
         BluesisConstants.Umi_ID,
         BluesisConstants.Shio_ID
     ]
+    static var League_ID = "6"
     static var Carol_ID = "22634198"
     static var Jiaran_ID = "22637261"
     static var Nailin_ID = "22625027"

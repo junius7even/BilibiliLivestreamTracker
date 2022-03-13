@@ -7,6 +7,7 @@
 
 import Foundation
 
-struct UserSearch: Decodable {
-    var data = User()
+struct StreamerSearch: Decodable, Identifiable {
+    let id = UUID().uuidString
+    var data = Streamer()
 }

@@ -9,10 +9,12 @@ import Foundation
 import SwiftUI
 
 class ContentModel: ObservableObject {
-    @Published var roomDetails = RoomSearch()
-    @Published var userDetails = UserSearch()
-    @Published var allRooms: [RoomSearch] = []
-    @Published var allUsers: [UserSearch] = []
+    @Published var liveRoomDetails = RoomSearch()
+    @Published var streamerDetails = StreamerSearch()
+    @Published var allLiveRooms: [RoomSearch] = []
+    @Published var allStreamers: [Streamer] = []
+    @Published var UIDLiveStatus = [Int: Int]()
+    @Published var isFetching = true
     
     func getUserDetails (userId: Int) {
         // Create URL
@@ -33,11 +35,17 @@ class ContentModel: ObservableObject {
                     do {
                         // Parse JSON
                         let decoder = JSONDecoder()
-                        let result = try decoder.decode(UserSearch.self, from: data!)
-                        print(result)
+                        let result = try decoder.decode(StreamerSearch.self, from: data!)
+                        
+                        //print(result)
                         // Assign results
                         DispatchQueue.main.async {
-                            self.userDetails = result
+                            self.streamerDetails = result
+                            // Add streamer data to array that contains all streamers
+                            self.allStreamers.append(self.streamerDetails.data)
+                            // Add streamer live status to dictinoary [uid: livestatus]
+                            print(self.liveRoomDetails.data.live_status!)
+                            self.UIDLiveStatus.updateValue(self.liveRoomDetails.data.live_status!, forKey: self.streamerDetails.data.mid!)
                         }
                     } catch {
                         // JSON parsing error
@@ -49,11 +57,9 @@ class ContentModel: ObservableObject {
             dataTask.resume()
             
         }
-        
-        
     }
     
-    func getRoomStatus (roomId: String) {
+    func getLiveRoomStatus (roomId: String) {
         // Create URL
         let urlString = Constants.ROOMSEARCH_API_URL + roomId
         let url = URL(string: urlString)
@@ -72,33 +78,37 @@ class ContentModel: ObservableObject {
                         let decoder = JSONDecoder()
                         let result = try decoder.decode(RoomSearch.self, from: data!)
                         // Assign results to appropriate property
-                        print(result)
+                        //print(result)
                         DispatchQueue.main.async {
-                            self.roomDetails = result
+                            self.liveRoomDetails = result
+                            self.allLiveRooms.append(self.liveRoomDetails)
+                            self.getUserDetails(userId: self.liveRoomDetails.data.uid!)
+                            print("RoomDetails: \(self.liveRoomDetails)")
                         }
+                    } catch DecodingError.dataCorrupted(let context) {
+                        print(context)
+                    } catch DecodingError.keyNotFound(let key, let context) {
+                        print("Key '\(key)' not found:", context.debugDescription)
+                        print("codingPath:", context.codingPath)
+                    } catch DecodingError.valueNotFound(let value, let context) {
+                        print("Value '\(value)' not found:", context.debugDescription)
+                        print("codingPath:", context.codingPath)
+                    } catch DecodingError.typeMismatch(let type, let context) {
+                        print("Type '\(type)' mismatch:", context.debugDescription)
+                        print("codingPath:", context.codingPath)
                     } catch {
-                        // Error here refers to error from the do block above
-                        // There would be a parsing error if its true
-                        print (error)
+                        print("error: ", error)
                     }
-                    
                 }
                 
             }
             dataTask.resume()
         }
     }
-    func getAllRooomStatus (IdArray: [String]) {
+    func getAllLiveRoomStatus (IdArray: [String]) {
         for id in IdArray {
-            getRoomStatus(roomId: id)
-            // TODO: put all userNames and profile pictures into an array/dictionary so you can access it in the list with ease
-            // MARK: UNFINISHED user pic & name fetching
-            //getUserDetails(userId: self.roomDetails.data.uid!)
-            // Create copy of roomDetails
-            let newRoomDetail = self.roomDetails
-            // let newUserDetail = self.userDetails
-            self.allRooms.append(newRoomDetail)
-           // self.allUsers.append(newUserDetail)
+            getLiveRoomStatus(roomId: id)
         }
+        self.isFetching = false
     }
 }
