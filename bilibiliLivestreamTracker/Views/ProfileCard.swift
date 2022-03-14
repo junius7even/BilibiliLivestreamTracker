@@ -18,6 +18,7 @@ struct ProfileCard: View {
         let imageUrl = URL(string: profileImageUrl)
         let liveRoomUrl = URL(string: Constants.LIVEROOM_URL + String(liveRoomId))
         Button {
+            // Open liveRoomURL upon button press
             UIApplication.shared.open(liveRoomUrl!, options: [:], completionHandler: nil)
         } label: {
             HStack(spacing: 0) {
