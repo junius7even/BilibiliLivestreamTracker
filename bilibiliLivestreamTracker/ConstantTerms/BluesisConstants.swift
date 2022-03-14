@@ -17,8 +17,10 @@ struct BluesisConstants {
         BluesisConstants.Bella_ID,
         BluesisConstants.Merry_ID,
         BluesisConstants.Umi_ID,
-        BluesisConstants.Shio_ID
+        BluesisConstants.Shio_ID,
+        BluesisConstants.testing
     ]
+    static var testing = "11045774"
     static var League_ID = "6"
     static var Carol_ID = "22634198"
     static var Jiaran_ID = "22637261"

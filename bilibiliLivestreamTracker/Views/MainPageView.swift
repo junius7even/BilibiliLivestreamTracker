@@ -11,18 +11,32 @@ struct MainPageView: View {
     @EnvironmentObject var model: ContentModel
     @State var liveStatus = -1
     var body: some View {
-        NavigationView {
-            ScrollView {
-                if model.isFetching {
-                    Text ("I'm fetching!")
-                } else {
-                    ForEach(model.allStreamers) {liver in
-                        ProfileCard(streamingStatus: model.UIDLiveStatus[liver.mid!]!, profileImageUrl: liver.face!, streamerName: liver.name!)
+        TabView {
+            NavigationView {
+                ScrollView {
+                    if model.isFetching {
+                        Text ("I'm fetching!")
+                    } else {
+                        ForEach(model.allStreamerInfo) {liver in
+                            ProfileCard(streamingStatus: model.UIDLiveStatus[liver.mid]!, profileImageUrl: liver.face, streamerName: liver.name)
+                        }
                     }
                 }
-            }.onAppear {
+                .navigationTitle("哔哩哔哩Tracker v1.0")//.getAllRooomStatus(IdArray: BluesisConstants.BluesisIDCollection)
+            }
+            .tabItem({
+                Image("biliTele2")
+                Text("Bilibili")
+            })
+            .onAppear {
                 model.getAllLiveRoomStatus(IdArray: BluesisConstants.BluesisIDCollection)
-        }.navigationTitle("哔哩哔哩Tracker v1.0")//.getAllRooomStatus(IdArray: BluesisConstants.BluesisIDCollection)
+            }
+            
+            Text("Youtube placeholder")
+                .tabItem {
+                    Image(systemName: "play.tv.fill")
+                    Text("YouTube")
+                }
         }
     }
 }
