@@ -18,7 +18,7 @@ struct MainPageView: View {
                         Text ("I'm fetching!")
                     } else {
                         ForEach(model.allStreamerInfo) {liver in
-                            ProfileCard(streamingStatus: model.UIDLiveStatus[liver.mid]!, profileImageUrl: liver.face, streamerName: liver.name)
+                            ProfileCard(streamingStatus: model.UIDLiveStatus[liver.mid]!, profileImageUrl: liver.face, streamerName: liver.name, liveRoomId: model.UIDLiveRoomNumber[liver.mid]!)
                         }
                     }
                 }

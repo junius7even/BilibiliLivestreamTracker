@@ -10,15 +10,15 @@ import Foundation
 struct BluesisConstants {
     static var BluesisIDCollection: [String] = [
         BluesisConstants.League_ID,
-        BluesisConstants.Carol_ID,
-        BluesisConstants.Jiaran_ID,
-        BluesisConstants.Nailin_ID,
-        BluesisConstants.Xiangwan_ID,
-        BluesisConstants.Bella_ID,
-        BluesisConstants.Merry_ID,
-        BluesisConstants.Umi_ID,
-        BluesisConstants.Shio_ID,
-        BluesisConstants.testing
+//        BluesisConstants.Carol_ID,
+//        BluesisConstants.Jiaran_ID,
+//        BluesisConstants.Nailin_ID,
+//        BluesisConstants.Xiangwan_ID,
+//        BluesisConstants.Bella_ID,
+//        BluesisConstants.Merry_ID,
+//        BluesisConstants.Umi_ID,
+//        BluesisConstants.Shio_ID,
+//        BluesisConstants.testing
     ]
     static var testing = "11045774"
     static var League_ID = "6"

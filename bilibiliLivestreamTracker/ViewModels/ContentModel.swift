@@ -15,11 +15,12 @@ class ContentModel: ObservableObject {
     @Published var allStreamers: [Streamer] = []
     @Published var allStreamerInfo: [StreamerInfo] = []
     @Published var UIDLiveStatus = [Int: Int]()
+    @Published var UIDLiveRoomNumber = [Int: Int]()
     @Published var isFetching = true
     
     func getUserDetails (userId: Int) {
         // Create URL
-        let urlString = Constants.USERSEARCH_API_RUL + String(userId)
+        let urlString = Constants.USERSEARCH_API_URL + String(userId)
         let url = URL(string: urlString)
         
         // Check nil
@@ -83,6 +84,7 @@ class ContentModel: ObservableObject {
                         DispatchQueue.main.async {
                             self.liveRoomDetails = result
                             self.allLiveRooms.append(self.liveRoomDetails)
+                            self.UIDLiveRoomNumber.updateValue(self.liveRoomDetails.data.room_id!, forKey: self.liveRoomDetails.data.uid!)
                             self.UIDLiveStatus.updateValue(self.liveRoomDetails.data.live_status!, forKey: self.liveRoomDetails.data.uid!)
                             self.getUserDetails(userId: self.liveRoomDetails.data.uid!)
                         }
