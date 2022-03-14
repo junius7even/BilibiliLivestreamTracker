@@ -13,6 +13,7 @@ class ContentModel: ObservableObject {
     @Published var streamerDetails = StreamerSearch()
     @Published var allLiveRooms: [RoomSearch] = []
     @Published var allStreamers: [Streamer] = []
+    @Published var allStreamerInfo: [StreamerInfo] = []
     @Published var UIDLiveStatus = [Int: Int]()
     @Published var isFetching = true
     
@@ -41,11 +42,11 @@ class ContentModel: ObservableObject {
                         // Assign results
                         DispatchQueue.main.async {
                             self.streamerDetails = result
+                            // Add streamer data to allStreamerInfoArray
+                            self.allStreamerInfo.append(StreamerInfo(mid: self.streamerDetails.data.mid!, live_status: self.liveRoomDetails.data.live_status!, name: self.streamerDetails.data.name!, face: self.streamerDetails.data.face!))
                             // Add streamer data to array that contains all streamers
                             self.allStreamers.append(self.streamerDetails.data)
-                            // Add streamer live status to dictinoary [uid: livestatus]
-                            print(self.liveRoomDetails.data.live_status!)
-                            self.UIDLiveStatus.updateValue(self.liveRoomDetails.data.live_status!, forKey: self.streamerDetails.data.mid!)
+                            // print(self.liveRoomDetails.data.live_status)
                         }
                     } catch {
                         // JSON parsing error
@@ -82,9 +83,10 @@ class ContentModel: ObservableObject {
                         DispatchQueue.main.async {
                             self.liveRoomDetails = result
                             self.allLiveRooms.append(self.liveRoomDetails)
+                            self.UIDLiveStatus.updateValue(self.liveRoomDetails.data.live_status!, forKey: self.liveRoomDetails.data.uid!)
                             self.getUserDetails(userId: self.liveRoomDetails.data.uid!)
-                            print("RoomDetails: \(self.liveRoomDetails)")
                         }
+                        
                     } catch DecodingError.dataCorrupted(let context) {
                         print(context)
                     } catch DecodingError.keyNotFound(let key, let context) {
@@ -100,9 +102,9 @@ class ContentModel: ObservableObject {
                         print("error: ", error)
                     }
                 }
-                
             }
             dataTask.resume()
+            
         }
     }
     func getAllLiveRoomStatus (IdArray: [String]) {
