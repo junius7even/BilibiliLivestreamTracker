@@ -43,6 +43,7 @@ class ContentModel: ObservableObject {
                         // Assign results
                         DispatchQueue.main.async {
                             self.streamerDetails = result
+                            
                             // Add streamer data to allStreamerInfoArray
                             self.allStreamerInfo.append(StreamerInfo(mid: self.streamerDetails.data.mid!, live_status: self.liveRoomDetails.data.live_status!, name: self.streamerDetails.data.name!, face: self.streamerDetails.data.face!))
                             // Add streamer data to array that contains all streamers
@@ -83,6 +84,7 @@ class ContentModel: ObservableObject {
                         //print(result)
                         DispatchQueue.main.async {
                             self.liveRoomDetails = result
+                            print(self.liveRoomDetails)
                             self.allLiveRooms.append(self.liveRoomDetails)
                             self.UIDLiveRoomNumber.updateValue(self.liveRoomDetails.data.room_id!, forKey: self.liveRoomDetails.data.uid!)
                             self.UIDLiveStatus.updateValue(self.liveRoomDetails.data.live_status!, forKey: self.liveRoomDetails.data.uid!)
@@ -106,6 +108,7 @@ class ContentModel: ObservableObject {
                 }
             }
             dataTask.resume()
+            
             
         }
     }

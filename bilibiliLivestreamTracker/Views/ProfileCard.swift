@@ -9,10 +9,10 @@ import SwiftUI
 import URLImage
 
 struct ProfileCard: View {
-    @Binding var streamingStatus: Int // -1: fetching, 0: not streaming, 1: streaming, 2: replaying
+    var streamingStatus: Int // -1: fetching, 0: not streaming, 1: streaming, 2: replaying
     @Binding var profileImageUrl: String
     @Binding var streamerName: String
-    @Binding var liveRoomId: Int
+    var liveRoomId: Int
     let screenSize: CGRect = UIScreen.main.bounds
     var body: some View {
         let imageUrl = URL(string: profileImageUrl)
@@ -69,7 +69,7 @@ struct ProfileCard: View {
                         .frame(alignment: .trailing)
                         .padding(.trailing, 5)
                 case 2:
-                    Text("Playback")
+                    Text("轮播")
                         .font(.title)
                         .fontWeight(.bold)
                         .foregroundColor(Color.yellow)
