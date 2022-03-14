@@ -10,6 +10,7 @@ import SwiftUI
 struct MainPageView: View {
     @EnvironmentObject var model: ContentModel
     @State var liveStatus = -1
+    @State var hasAppeared = false
     var body: some View {
         TabView {
             NavigationView {
@@ -29,7 +30,11 @@ struct MainPageView: View {
                 Text("Bilibili")
             })
             .onAppear {
-                model.getAllLiveRoomStatus(IdArray: BluesisConstants.BluesisIDCollection)
+                // Prevent tab swapping to cause reloading of the page every single time
+                if !hasAppeared {
+                    model.getAllLiveRoomStatus(IdArray: BluesisConstants.BluesisIDCollection)
+                    hasAppeared = true
+                }
             }
             
             Text("Youtube placeholder")
