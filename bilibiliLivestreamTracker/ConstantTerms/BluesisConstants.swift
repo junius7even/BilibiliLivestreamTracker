@@ -15,9 +15,9 @@ struct BluesisConstants {
         BluesisConstants.Nailin_ID,
         BluesisConstants.Xiangwan_ID,
         BluesisConstants.Bella_ID,
-//        BluesisConstants.Merry_ID,
-//        BluesisConstants.Umi_ID,
-//        BluesisConstants.Shio_ID,
+        BluesisConstants.Merry_ID,
+        BluesisConstants.Umi_ID,
+        BluesisConstants.Shio_ID,
 //        BluesisConstants.testing
     ]
     static var testing = "11045774"

@@ -9,6 +9,7 @@ import Foundation
 import SwiftUI
 
 class ContentModel: ObservableObject {
+    // Bilibili portion
     @Published var liveRoomDetails = RoomSearch()
     @Published var streamerDetails = StreamerSearch()
     @Published var allLiveRooms: [RoomSearch] = []
@@ -17,8 +18,88 @@ class ContentModel: ObservableObject {
     @Published var UIDLiveStatus = [Int: Int]()
     @Published var UIDLiveRoomNumber = [Int: Int]()
     @Published var isFetching = true
+    @Published var youtubeVideos = LiveVideoSearch()
+    @Published var youtuberItems = YoutuberSearch()
+    
+    // YouTube portion
+    func getYoutubeLivestream (streamerName: String) {
+        self.isFetching = true
+        let changedQueryString = streamerName.replacingOccurrences(of: " ", with: "%20")
+        // Create url string
+        let urlString = "https://youtube.googleapis.com/youtube/v3/search?part=snippet&eventType=live&maxResults=25&q=\(changedQueryString)&type=video&key=\(Constants.API_KEY)"
+        // CReate url object
+        let url = URL(string: urlString)
+        
+        // Check nil
+        if let url = url {
+            // Create url request
+            let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10.0) // Timeout interval in seconds
+            // Get URLSession
+            let session = URLSession.shared
+            
+            let dataTask = session.dataTask(with: request) { data, response, error in
+                // Check if there wasn't any errors
+                if error == nil {
+                    do {
+                        // Parse JSON
+                        let decoder = JSONDecoder()
+                        let result = try decoder.decode(LiveVideoSearch.self, from: data!)
+                        // Assign results
+                        DispatchQueue.main.async {
+                            print("hi")
+                            print(result)
+                            self.youtubeVideos = result
+                            if self.youtubeVideos.items.count != 0 {
+                                self.getYoutubeChannel(channelId: self.youtubeVideos.items[self.youtubeVideos.items.startIndex].snippet.channelId!)
+                            }
+                            
+                        }
+                    } catch {
+                        print(error)
+                    }
+                }
+                
+            }
+            dataTask.resume()
+            
+        }
+    }
+    
+    func getYoutubeChannel (channelId: String) {
+        self.isFetching = true
+        // Create URL object
+        let urlString = "https://youtube.googleapis.com/youtube/v3/channels?part=snippet%2CcontentDetails%2Cstatistics&id=\(channelId)&key=\(Constants.API_KEY)"
+        let url = URL(string: urlString)
+        // Check nil
+        if let url = url {
+            // Create request
+            let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10.0)
+            
+            let session = URLSession.shared
+            
+            let dataTask = session.dataTask(with: request) { data, response, error in
+                if error == nil {
+                    do {
+                        // Parse json
+                        let decoder = JSONDecoder()
+                        let result = try decoder.decode(YoutuberSearch.self, from: data!)
+                        DispatchQueue.main.async {
+                            // Assign fetched values
+                            self.youtuberItems = result
+                            print(result)
+                        }
+                    } catch {
+                        print(error)
+                    }
+                }
+                self.isFetching = false
+            }
+            dataTask.resume()
+        }
+    }
     
     func getUserDetails (userId: Int) {
+        self.isFetching = true
         // Create URL
         let urlString = Constants.USERSEARCH_API_URL + String(userId)
         let url = URL(string: urlString)
@@ -63,6 +144,7 @@ class ContentModel: ObservableObject {
     }
     
     func getLiveRoomStatus (roomId: String) {
+        self.isFetching = true
         // Create URL
         let urlString = Constants.ROOMSEARCH_API_URL + roomId
         let url = URL(string: urlString)

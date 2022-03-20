@@ -9,6 +9,18 @@
 /* Begin PBXBuildFile section */
 		582795EB27DE78FF00EB9003 /* URLImage in Frameworks */ = {isa = PBXBuildFile; productRef = 582795EA27DE78FF00EB9003 /* URLImage */; };
 		582795ED27DE791500EB9003 /* ProfileCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582795EC27DE791500EB9003 /* ProfileCard.swift */; };
+		5852C7A727E7981900A33471 /* YoutubeTrackerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5852C7A627E7981900A33471 /* YoutubeTrackerView.swift */; };
+		5852C7A927E79D1700A33471 /* LiveVideoSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5852C7A827E79D1700A33471 /* LiveVideoSearch.swift */; };
+		5852C7AB27E79ECC00A33471 /* LiveVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5852C7AA27E79ECC00A33471 /* LiveVideo.swift */; };
+		5852C7AD27E79F0E00A33471 /* LiveVideoDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5852C7AC27E79F0E00A33471 /* LiveVideoDetails.swift */; };
+		5852C7AF27E7A70400A33471 /* Thumbnails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5852C7AE27E7A70400A33471 /* Thumbnails.swift */; };
+		5852C7B127E7A72A00A33471 /* ThumbnailObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5852C7B027E7A72A00A33471 /* ThumbnailObject.swift */; };
+		5852C7B327E7ADCB00A33471 /* YoutubeConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5852C7B227E7ADCB00A33471 /* YoutubeConstants.swift */; };
+		5852C7B527E7B91F00A33471 /* YoutuberSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5852C7B427E7B91F00A33471 /* YoutuberSearch.swift */; };
+		5852C7B727E7B9B100A33471 /* ChannelItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5852C7B627E7B9B100A33471 /* ChannelItem.swift */; };
+		5852C7B927E7B9FF00A33471 /* ChannelDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5852C7B827E7B9FF00A33471 /* ChannelDetails.swift */; };
+		5852C7BD27E7BE2600A33471 /* YoutuberProfileCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5852C7BC27E7BE2600A33471 /* YoutuberProfileCard.swift */; };
+		5852C7BF27E7C01700A33471 /* VideoIdDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5852C7BE27E7C01700A33471 /* VideoIdDetails.swift */; };
 		5857565227D9ABEE009DDF48 /* bilibiliLivestreamTrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5857565127D9ABEE009DDF48 /* bilibiliLivestreamTrackerApp.swift */; };
 		5857565627D9ABF0009DDF48 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5857565527D9ABF0009DDF48 /* Assets.xcassets */; };
 		5857565927D9ABF0009DDF48 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5857565827D9ABF0009DDF48 /* Preview Assets.xcassets */; };
@@ -25,6 +37,18 @@
 
 /* Begin PBXFileReference section */
 		582795EC27DE791500EB9003 /* ProfileCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCard.swift; sourceTree = "<group>"; };
+		5852C7A627E7981900A33471 /* YoutubeTrackerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeTrackerView.swift; sourceTree = "<group>"; };
+		5852C7A827E79D1700A33471 /* LiveVideoSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveVideoSearch.swift; sourceTree = "<group>"; };
+		5852C7AA27E79ECC00A33471 /* LiveVideo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveVideo.swift; sourceTree = "<group>"; };
+		5852C7AC27E79F0E00A33471 /* LiveVideoDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveVideoDetails.swift; sourceTree = "<group>"; };
+		5852C7AE27E7A70400A33471 /* Thumbnails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Thumbnails.swift; sourceTree = "<group>"; };
+		5852C7B027E7A72A00A33471 /* ThumbnailObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbnailObject.swift; sourceTree = "<group>"; };
+		5852C7B227E7ADCB00A33471 /* YoutubeConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeConstants.swift; sourceTree = "<group>"; };
+		5852C7B427E7B91F00A33471 /* YoutuberSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutuberSearch.swift; sourceTree = "<group>"; };
+		5852C7B627E7B9B100A33471 /* ChannelItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelItem.swift; sourceTree = "<group>"; };
+		5852C7B827E7B9FF00A33471 /* ChannelDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelDetails.swift; sourceTree = "<group>"; };
+		5852C7BC27E7BE2600A33471 /* YoutuberProfileCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutuberProfileCard.swift; sourceTree = "<group>"; };
+		5852C7BE27E7C01700A33471 /* VideoIdDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoIdDetails.swift; sourceTree = "<group>"; };
 		5857564E27D9ABEE009DDF48 /* bilibiliLivestreamTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bilibiliLivestreamTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5857565127D9ABEE009DDF48 /* bilibiliLivestreamTrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bilibiliLivestreamTrackerApp.swift; sourceTree = "<group>"; };
 		5857565527D9ABF0009DDF48 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -53,6 +77,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5852C7A527E7971000A33471 /* YoutubeModels */ = {
+			isa = PBXGroup;
+			children = (
+				5852C7A827E79D1700A33471 /* LiveVideoSearch.swift */,
+				5852C7AA27E79ECC00A33471 /* LiveVideo.swift */,
+				5852C7BE27E7C01700A33471 /* VideoIdDetails.swift */,
+				5852C7AC27E79F0E00A33471 /* LiveVideoDetails.swift */,
+				5852C7AE27E7A70400A33471 /* Thumbnails.swift */,
+				5852C7B027E7A72A00A33471 /* ThumbnailObject.swift */,
+				5852C7B427E7B91F00A33471 /* YoutuberSearch.swift */,
+				5852C7B627E7B9B100A33471 /* ChannelItem.swift */,
+				5852C7B827E7B9FF00A33471 /* ChannelDetails.swift */,
+			);
+			path = YoutubeModels;
+			sourceTree = "<group>";
+		};
 		5857564527D9ABEE009DDF48 = {
 			isa = PBXGroup;
 			children = (
@@ -97,6 +137,7 @@
 			children = (
 				58BC359227DAE19C0069729F /* BluesisConstants.swift */,
 				5857566127D9AC24009DDF48 /* Constants.swift */,
+				5852C7B227E7ADCB00A33471 /* YoutubeConstants.swift */,
 			);
 			path = ConstantTerms;
 			sourceTree = "<group>";
@@ -106,6 +147,8 @@
 			children = (
 				58BC359C27DAF05A0069729F /* MainPageView.swift */,
 				582795EC27DE791500EB9003 /* ProfileCard.swift */,
+				5852C7A627E7981900A33471 /* YoutubeTrackerView.swift */,
+				5852C7BC27E7BE2600A33471 /* YoutuberProfileCard.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -139,6 +182,7 @@
 		58C31DA927DE7EFB000C98B5 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				5852C7A527E7971000A33471 /* YoutubeModels */,
 				58BC359627DAED580069729F /* Room Models */,
 				58BC359727DAED640069729F /* Streamer Models */,
 				5896DB0627DEBB44006F0197 /* StreamerInfo.swift */,
@@ -223,15 +267,27 @@
 			buildActionMask = 2147483647;
 			files = (
 				5896DB0727DEBB44006F0197 /* StreamerInfo.swift in Sources */,
+				5852C7B327E7ADCB00A33471 /* YoutubeConstants.swift in Sources */,
+				5852C7B927E7B9FF00A33471 /* ChannelDetails.swift in Sources */,
+				5852C7AB27E79ECC00A33471 /* LiveVideo.swift in Sources */,
+				5852C7AF27E7A70400A33471 /* Thumbnails.swift in Sources */,
+				5852C7B727E7B9B100A33471 /* ChannelItem.swift in Sources */,
 				582795ED27DE791500EB9003 /* ProfileCard.swift in Sources */,
 				5857565227D9ABEE009DDF48 /* bilibiliLivestreamTrackerApp.swift in Sources */,
+				5852C7A727E7981900A33471 /* YoutubeTrackerView.swift in Sources */,
 				5857566227D9AC24009DDF48 /* Constants.swift in Sources */,
+				5852C7BD27E7BE2600A33471 /* YoutuberProfileCard.swift in Sources */,
 				58BC359B27DAED790069729F /* StreamerSearch.swift in Sources */,
 				58BC359027DAD8AA0069729F /* ContentModel.swift in Sources */,
 				58BC359927DAED730069729F /* Streamer.swift in Sources */,
 				58BC359D27DAF05A0069729F /* MainPageView.swift in Sources */,
+				5852C7BF27E7C01700A33471 /* VideoIdDetails.swift in Sources */,
 				58BC358D27DAD68D0069729F /* RoomSearch.swift in Sources */,
+				5852C7AD27E79F0E00A33471 /* LiveVideoDetails.swift in Sources */,
+				5852C7B127E7A72A00A33471 /* ThumbnailObject.swift in Sources */,
+				5852C7B527E7B91F00A33471 /* YoutuberSearch.swift in Sources */,
 				58BC358B27DAD62F0069729F /* Room.swift in Sources */,
+				5852C7A927E79D1700A33471 /* LiveVideoSearch.swift in Sources */,
 				58BC359327DAE19C0069729F /* BluesisConstants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -377,7 +433,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.toreimi.extractingBootcamp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.toreimi.bilibiliLivestreamTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -407,7 +463,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.toreimi.extractingBootcamp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.toreimi.bilibiliLivestreamTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

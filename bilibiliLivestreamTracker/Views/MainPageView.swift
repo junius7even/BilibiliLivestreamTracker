@@ -37,7 +37,17 @@ struct MainPageView: View {
                 }
             }
             
-            Text("Youtube placeholder")
+            NavigationView {
+                ScrollView {
+                    if model.isFetching {
+                        Text ("I'm fetching!")
+                    } else {
+                        YoutuberProfileCard(profileImageUrl: (model.youtuberItems.items[0].snippet?.thumbnails?.high?.url)!, streamerName: (model.youtubeVideos.items[0].snippet.channelTitle)!, videoId: (model.youtubeVideos.items[0].id.videoId)!)
+//                        YoutuberProfileCard(profileImageUrl: , streamerName: <#T##Binding<String>#>, videoId: $model.youtubeVideos.items[0].id.videoId)
+                    }
+                }
+                .navigationTitle("YouTub Tracker v1.0")//.getAllRooomStatus(IdArray: BluesisConstants.BluesisIDCollection)
+            }
                 .tabItem {
                     Image(systemName: "play.tv.fill")
                     Text("YouTube")
