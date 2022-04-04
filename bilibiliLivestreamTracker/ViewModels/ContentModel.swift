@@ -171,6 +171,7 @@ class ContentModel: ObservableObject {
                             self.UIDLiveRoomNumber.updateValue(self.liveRoomDetails.data.room_id!, forKey: self.liveRoomDetails.data.uid!)
                             self.UIDLiveStatus.updateValue(self.liveRoomDetails.data.live_status!, forKey: self.liveRoomDetails.data.uid!)
                             self.getUserDetails(userId: self.liveRoomDetails.data.uid!)
+                            self.isFetching = false
                         }
                         
                     } catch DecodingError.dataCorrupted(let context) {
@@ -198,6 +199,5 @@ class ContentModel: ObservableObject {
         for id in IdArray {
             getLiveRoomStatus(roomId: id)
         }
-        self.isFetching = false
     }
 }

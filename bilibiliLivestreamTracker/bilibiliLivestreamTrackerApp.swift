@@ -11,8 +11,8 @@ import SwiftUI
 struct bilibiliLivestreamTrackerApp: App {
     var body: some Scene {
         WindowGroup {
-            YoutubeTrackerView().environmentObject(ContentModel())
-            // MainPageView().environmentObject(ContentModel())
+            // YoutubeTrackerView().environmentObject(ContentModel())
+             MainPageView().environmentObject(ContentModel())
         }
     }
 }
