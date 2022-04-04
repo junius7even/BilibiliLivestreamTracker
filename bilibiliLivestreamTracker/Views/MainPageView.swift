@@ -28,7 +28,7 @@ struct MainPageView: View {
                     NavigationLink {
                         LiverList()
                     } label: {
-                        Image(systemName: "list.dash")
+                        Image(systemName: "list.star")
                     }
 
 
