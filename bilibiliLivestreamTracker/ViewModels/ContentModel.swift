@@ -11,11 +11,15 @@ import SwiftUI
 class ContentModel: ObservableObject {
     @Published var liveRoomDetails = RoomSearch()
     @Published var streamerDetails = StreamerSearch()
+    
     @Published var allLiveRooms: [RoomSearch] = []
     @Published var allStreamers: [Streamer] = []
+    
     @Published var allStreamerInfo: [StreamerInfo] = []
+    
     @Published var UIDLiveStatus = [Int: Int]()
     @Published var UIDLiveRoomNumber = [Int: Int]()
+    
     @Published var isFetching = true
     
     func getUserDetails (userId: Int) {
@@ -39,7 +43,6 @@ class ContentModel: ObservableObject {
                         let decoder = JSONDecoder()
                         let result = try decoder.decode(StreamerSearch.self, from: data!)
                         
-                        //print(result)
                         // Assign results
                         DispatchQueue.main.async {
                             self.streamerDetails = result
@@ -84,13 +87,14 @@ class ContentModel: ObservableObject {
                         //print(result)
                         DispatchQueue.main.async {
                             self.liveRoomDetails = result
-                            print(self.liveRoomDetails)
+                            // print(self.liveRoomDetails)
                             self.allLiveRooms.append(self.liveRoomDetails)
                             self.UIDLiveRoomNumber.updateValue(self.liveRoomDetails.data.room_id!, forKey: self.liveRoomDetails.data.uid!)
                             self.UIDLiveStatus.updateValue(self.liveRoomDetails.data.live_status!, forKey: self.liveRoomDetails.data.uid!)
                             self.getUserDetails(userId: self.liveRoomDetails.data.uid!)
+                            self.isFetching = false
+                            
                         }
-                        
                     } catch DecodingError.dataCorrupted(let context) {
                         print(context)
                     } catch DecodingError.keyNotFound(let key, let context) {
@@ -108,14 +112,11 @@ class ContentModel: ObservableObject {
                 }
             }
             dataTask.resume()
-            
-            
         }
     }
     func getAllLiveRoomStatus (IdArray: [String]) {
         for id in IdArray {
             getLiveRoomStatus(roomId: id)
         }
-        self.isFetching = false
     }
 }

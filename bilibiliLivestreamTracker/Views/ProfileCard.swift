@@ -10,8 +10,8 @@ import URLImage
 
 struct ProfileCard: View {
     var streamingStatus: Int // -1: fetching, 0: not streaming, 1: streaming, 2: replaying
-    @Binding var profileImageUrl: String
-    @Binding var streamerName: String
+    var profileImageUrl: String
+    var streamerName: String
     var liveRoomId: Int
     let screenSize: CGRect = UIScreen.main.bounds
     var body: some View {
