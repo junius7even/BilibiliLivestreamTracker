@@ -61,7 +61,6 @@ class ContentModel: ObservableObject {
                 }
             }
             dataTask.resume()
-            
         }
     }
     
@@ -84,16 +83,13 @@ class ContentModel: ObservableObject {
                         let decoder = JSONDecoder()
                         let result = try decoder.decode(RoomSearch.self, from: data!)
                         // Assign results to appropriate property
-                        //print(result)
                         DispatchQueue.main.async {
                             self.liveRoomDetails = result
-                            // print(self.liveRoomDetails)
                             self.allLiveRooms.append(self.liveRoomDetails)
                             self.UIDLiveRoomNumber.updateValue(self.liveRoomDetails.data.room_id!, forKey: self.liveRoomDetails.data.uid!)
                             self.UIDLiveStatus.updateValue(self.liveRoomDetails.data.live_status!, forKey: self.liveRoomDetails.data.uid!)
                             self.getUserDetails(userId: self.liveRoomDetails.data.uid!)
                             self.isFetching = false
-                            
                         }
                     } catch DecodingError.dataCorrupted(let context) {
                         print(context)
