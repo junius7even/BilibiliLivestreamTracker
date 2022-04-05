@@ -13,7 +13,7 @@ struct BluesisConstants {
 //        BluesisConstants.Carol_ID,
 //        BluesisConstants.Jiaran_ID,
 //        BluesisConstants.Nailin_ID,
-//        BluesisConstants.Xiangwan_ID,
+        BluesisConstants.Xiangwan_ID,
 //        BluesisConstants.Bella_ID,
 //        BluesisConstants.Merry_ID,
 //        BluesisConstants.Umi_ID,

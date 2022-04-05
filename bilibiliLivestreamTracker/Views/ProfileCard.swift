@@ -69,7 +69,7 @@ struct ProfileCard: View {
                         .frame(alignment: .trailing)
                         .padding(.trailing, 5)
                 case 2:
-                    Text("Playback")
+                    Text("轮播")
                         .font(.title)
                         .fontWeight(.bold)
                         .foregroundColor(Color.yellow)
