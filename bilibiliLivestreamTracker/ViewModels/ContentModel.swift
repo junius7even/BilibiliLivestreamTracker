@@ -22,6 +22,8 @@ class ContentModel: ObservableObject {
     
     @Published var isFetching = true
     
+    @Published var roomNotFound = false
+    
     func getUserDetails (userId: Int) {
         // Create URL
         let urlString = Constants.USERSEARCH_API_URL + String(userId)
@@ -100,6 +102,9 @@ class ContentModel: ObservableObject {
                         print("Value '\(value)' not found:", context.debugDescription)
                         print("codingPath:", context.codingPath)
                     } catch DecodingError.typeMismatch(let type, let context) {
+                        // Remove not found room numbers from list
+                        BluesisConstants.BluesisIDCollection = BluesisConstants.BluesisIDCollection.filter() {$0 != roomId}
+                        self.roomNotFound = true
                         print("Type '\(type)' mismatch:", context.debugDescription)
                         print("codingPath:", context.codingPath)
                     } catch {

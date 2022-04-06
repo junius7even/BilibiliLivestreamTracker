@@ -22,6 +22,7 @@ struct MainPageView: View {
             model.isFetching = true
             model.getAllLiveRoomStatus(IdArray: BluesisConstants.BluesisIDCollection)
         }
+        model.isFetching = false
     }
     
     var body: some View {
@@ -125,11 +126,10 @@ struct MainPageView: View {
                         }
                     } label: {
                         Text("添加")
-                            .foregroundColor(Color(uiColor: .systemBlue))
-                            .padding(4)
+                            .foregroundColor(Color(uiColor: .systemGray6))
+                            .padding()
                             .background(Color.primary)
                             .cornerRadius(15)
-                            .shadow(color: Color.gray, radius: 15)
                     }
 
                 }
@@ -140,6 +140,11 @@ struct MainPageView: View {
                 })
                 .multilineTextAlignment(.center)
                 .padding()
+            })
+            .alert("未找到此房间号！", isPresented: $model.roomNotFound, actions: {
+                Button("好的陈sir", role: .cancel) {
+                    model.roomNotFound = false
+                }
             })
             .tabItem({
                 Image("biliTele2")
