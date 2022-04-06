@@ -13,7 +13,6 @@
 		5857565627D9ABF0009DDF48 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5857565527D9ABF0009DDF48 /* Assets.xcassets */; };
 		5857565927D9ABF0009DDF48 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5857565827D9ABF0009DDF48 /* Preview Assets.xcassets */; };
 		5857566227D9AC24009DDF48 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5857566127D9AC24009DDF48 /* Constants.swift */; };
-		587CF50727FBC1E600CBC5D2 /* UserConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 587CF50627FBC1E600CBC5D2 /* UserConstants.swift */; };
 		5896DB0727DEBB44006F0197 /* StreamerInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5896DB0627DEBB44006F0197 /* StreamerInfo.swift */; };
 		58BC358B27DAD62F0069729F /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58BC358A27DAD62F0069729F /* Room.swift */; };
 		58BC358D27DAD68D0069729F /* RoomSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58BC358C27DAD68D0069729F /* RoomSearch.swift */; };
@@ -31,7 +30,6 @@
 		5857565527D9ABF0009DDF48 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5857565827D9ABF0009DDF48 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		5857566127D9AC24009DDF48 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		587CF50627FBC1E600CBC5D2 /* UserConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserConstants.swift; sourceTree = "<group>"; };
 		5896DB0627DEBB44006F0197 /* StreamerInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamerInfo.swift; sourceTree = "<group>"; };
 		58BC358A27DAD62F0069729F /* Room.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Room.swift; sourceTree = "<group>"; };
 		58BC358C27DAD68D0069729F /* RoomSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomSearch.swift; sourceTree = "<group>"; };
@@ -99,7 +97,6 @@
 			children = (
 				58BC359227DAE19C0069729F /* BluesisConstants.swift */,
 				5857566127D9AC24009DDF48 /* Constants.swift */,
-				587CF50627FBC1E600CBC5D2 /* UserConstants.swift */,
 			);
 			path = ConstantTerms;
 			sourceTree = "<group>";
@@ -231,7 +228,6 @@
 				5857566227D9AC24009DDF48 /* Constants.swift in Sources */,
 				58BC359B27DAED790069729F /* StreamerSearch.swift in Sources */,
 				58BC359027DAD8AA0069729F /* ContentModel.swift in Sources */,
-				587CF50727FBC1E600CBC5D2 /* UserConstants.swift in Sources */,
 				58BC359927DAED730069729F /* Streamer.swift in Sources */,
 				58BC359D27DAF05A0069729F /* MainPageView.swift in Sources */,
 				58BC358D27DAD68D0069729F /* RoomSearch.swift in Sources */,
@@ -381,7 +377,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.toreimi.extractingBootcamp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.toreimi.bilibiliLivestreamTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -411,7 +407,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.toreimi.extractingBootcamp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.toreimi.bilibiliLivestreamTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

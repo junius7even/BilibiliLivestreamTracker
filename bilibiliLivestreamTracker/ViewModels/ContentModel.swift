@@ -86,7 +86,7 @@ class ContentModel: ObservableObject {
                         DispatchQueue.main.async {
                             self.liveRoomDetails = result
                             self.allLiveRooms.append(self.liveRoomDetails)
-                            self.UIDLiveRoomNumber.updateValue(self.liveRoomDetails.data.room_id!, forKey: self.liveRoomDetails.data.uid!)
+                            self.UIDLiveRoomNumber.updateValue(self.liveRoomDetails.data.short_id!, forKey: self.liveRoomDetails.data.uid!)
                             self.UIDLiveStatus.updateValue(self.liveRoomDetails.data.live_status!, forKey: self.liveRoomDetails.data.uid!)
                             self.getUserDetails(userId: self.liveRoomDetails.data.uid!)
                             self.isFetching = false
