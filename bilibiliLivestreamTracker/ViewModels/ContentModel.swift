@@ -9,6 +9,8 @@ import Foundation
 import SwiftUI
 
 class ContentModel: ObservableObject {
+    @AppStorage("idCollection") var idCollection: [String] = []
+    
     @Published var liveRoomDetails = RoomSearch()
     @Published var streamerDetails = StreamerSearch()
     
@@ -20,11 +22,13 @@ class ContentModel: ObservableObject {
     @Published var UIDLiveStatus = [Int: Int]()
     @Published var UIDLiveRoomNumber = [Int: Int]()
     
-    @Published var isFetching = true
+    @Published var isFetching = false
     
     @Published var roomNotFound = false
     
     func getUserDetails (userId: Int) {
+        // Make sure the state "fetching" is true
+        self.isFetching = true
         // Create URL
         let urlString = Constants.USERSEARCH_API_URL + String(userId)
         let url = URL(string: urlString)
@@ -88,7 +92,14 @@ class ContentModel: ObservableObject {
                         DispatchQueue.main.async {
                             self.liveRoomDetails = result
                             self.allLiveRooms.append(self.liveRoomDetails)
-                            self.UIDLiveRoomNumber.updateValue(self.liveRoomDetails.data.short_id!, forKey: self.liveRoomDetails.data.uid!)
+                            
+                            // Checks if there's a short_id, if so, use it; if not, use the long id
+                            if self.liveRoomDetails.data.short_id != 0 {
+                                self.UIDLiveRoomNumber.updateValue(self.liveRoomDetails.data.short_id!, forKey: self.liveRoomDetails.data.uid!)
+                            } else {
+                                self.UIDLiveRoomNumber.updateValue(self.liveRoomDetails.data.room_id!, forKey: self.liveRoomDetails.data.uid!)
+                            }
+                            
                             self.UIDLiveStatus.updateValue(self.liveRoomDetails.data.live_status!, forKey: self.liveRoomDetails.data.uid!)
                             self.getUserDetails(userId: self.liveRoomDetails.data.uid!)
                             self.isFetching = false
@@ -102,8 +113,9 @@ class ContentModel: ObservableObject {
                         print("Value '\(value)' not found:", context.debugDescription)
                         print("codingPath:", context.codingPath)
                     } catch DecodingError.typeMismatch(let type, let context) {
+                        // Try the short_id
                         // Remove not found room numbers from list
-                        BluesisConstants.BluesisIDCollection = BluesisConstants.BluesisIDCollection.filter() {$0 != roomId}
+                        self.idCollection = self.idCollection.filter() {$0 != roomId}
                         self.roomNotFound = true
                         print("Type '\(type)' mismatch:", context.debugDescription)
                         print("codingPath:", context.codingPath)
@@ -116,6 +128,8 @@ class ContentModel: ObservableObject {
         }
     }
     func getAllLiveRoomStatus (IdArray: [String]) {
+        // Make sure the state "fetching" is true
+        self.isFetching = true
         for id in IdArray {
             getLiveRoomStatus(roomId: id)
         }

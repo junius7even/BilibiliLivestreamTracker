@@ -1,5 +1,5 @@
 //
-//  BluesisView.swift
+//  MainPageView.swift
 //  bilibiliLivestreamTracker
 //
 //  Created by junius7even on 2022-03-10.
@@ -13,16 +13,25 @@ struct MainPageView: View {
     @State private var hasAppearedOnce = false
     @State private var showSheet = false
     @State private var showAlert = false
+    @State private var disableButton = false
+    
+    @AppStorage("idCollection") var idCollection: [String] = []
     
     private func refreshScreen() -> Void {
+        disableButton = true
         // Removes everything from the array to clear the original screen
         model.allStreamerInfo.removeAll()
         // If the array doesn't have any streamers then don't fetch anything
-        if BluesisConstants.BluesisIDCollection.count != 0 {
+        if !idCollection.isEmpty {
             model.isFetching = true
-            model.getAllLiveRoomStatus(IdArray: BluesisConstants.BluesisIDCollection)
+            model.getAllLiveRoomStatus(IdArray: idCollection)
         }
-        model.isFetching = false
+        // Disable button for 1.5 seconds to avoid excessive refreshing
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+            if !model.isFetching {
+                disableButton = false
+            }
+        }
     }
     
     var body: some View {
@@ -30,7 +39,10 @@ struct MainPageView: View {
             // MARK: Bilibili tracker tab
             NavigationView {
                 ScrollView {
-                    if model.isFetching {
+                    if idCollection.isEmpty {
+                        EmptyStateView()
+                    }
+                    else if model.isFetching {
                         ProgressView()
                     } else {
                         ForEach(model.allStreamerInfo) { liver in
@@ -43,9 +55,16 @@ struct MainPageView: View {
                                 .contextMenu(menuItems: {
                                     Button(role: .destructive, // makes the button red
                                         action: {
-                                        BluesisConstants.BluesisIDCollection = BluesisConstants.BluesisIDCollection.filter(){$0 != String(model.UIDLiveRoomNumber[liver.mid]!).trimmingCharacters(in: .whitespacesAndNewlines)}
-                                        let something = print(BluesisConstants.BluesisIDCollection)
-                                        let something2 = print("\(model.UIDLiveRoomNumber)")
+                                        
+                                        idCollection = idCollection.filter(){
+                                            $0 != String(
+                                                model.UIDLiveRoomNumber[liver.mid]!
+                                            ).trimmingCharacters(
+                                                in: .whitespacesAndNewlines
+                                            )
+                                        }
+                                        let something2 = print (model.UIDLiveRoomNumber)
+                                        let something = print (idCollection)
                                         // Always refresh screen when user deletes a streamer
                                         // to ensure display is up to date (not displaying something that isn't
                                         // supposed to be there
@@ -72,25 +91,27 @@ struct MainPageView: View {
                                 Text("刷新")
                                 Image(systemName: "arrow.clockwise")
                             }
-                            .foregroundColor(Color(UIColor.systemGray6))
+                            .foregroundColor(disableButton ? Color(uiColor: .systemGray2) : Color(UIColor.systemGray6))
                             .padding(4)
                             .background(Color.primary)
                             .cornerRadius(15)
                         }
+                        .disabled(disableButton)
                         // MARK: dd more livers button
                         Button {
                             showSheet.toggle()
                         } label: {
                             HStack {
                                 Text("添加")
-                                    .foregroundColor(Color.primary)
+                                    .foregroundColor(disableButton ? Color(uiColor: .systemGray) : Color.primary)
                                 Image(systemName: "plus.diamond")
-                                    .foregroundColor(Color.primary)
+                                    .foregroundColor(disableButton ? Color(uiColor: .systemGray) : Color.primary)
                             }
                             .padding(4)
                             .background(Color(uiColor: .systemGray3))
                             .cornerRadius(15)
                         }
+                        .disabled(disableButton)
                     }
                 }
             }
@@ -104,7 +125,7 @@ struct MainPageView: View {
                         .onSubmit {
                             // Checks if the submitted text is fully integer
                             if let submittedText: Int = Int(addedLiveroomNumber.trimmingCharacters(in: .whitespacesAndNewlines)) {
-                                BluesisConstants.BluesisIDCollection.append(addedLiveroomNumber.trimmingCharacters(in: .whitespacesAndNewlines))
+                                idCollection.append(addedLiveroomNumber.trimmingCharacters(in: .whitespacesAndNewlines))
                                 showSheet = false
                                 refreshScreen()
                             } else {
@@ -118,7 +139,7 @@ struct MainPageView: View {
                     Button {
                         // Checks if the submitted text is fully integer
                         if let submittedText: Int = Int(addedLiveroomNumber.trimmingCharacters(in: .whitespacesAndNewlines)) {
-                            BluesisConstants.BluesisIDCollection.append(addedLiveroomNumber.trimmingCharacters(in: .whitespacesAndNewlines))
+                            idCollection.append(addedLiveroomNumber.trimmingCharacters(in: .whitespacesAndNewlines))
                             showSheet = false
                             refreshScreen()
                         } else {
@@ -153,8 +174,8 @@ struct MainPageView: View {
             })
             .onAppear {
                 // Prevent tab swapping to cause reloading of the page and refetching every single time
-                if !hasAppearedOnce {
-                    model.getAllLiveRoomStatus(IdArray: BluesisConstants.BluesisIDCollection)
+                if !hasAppearedOnce && !idCollection.isEmpty {
+                    model.getAllLiveRoomStatus(IdArray: idCollection)
                     hasAppearedOnce = true
                 }
             }
@@ -166,5 +187,27 @@ struct MainPageView: View {
                     Text("设置")
                 }
         }
+    }
+}
+
+// MARK: AppStorage extension
+// Used to make arrays storable in @AppStorage --> @UserDefaults
+// Credit: https://stackoverflow.com/questions/62562534/swiftui-what-is-appstorage-property-wrapper
+extension Array: RawRepresentable where Element: Codable {
+    public init?(rawValue: String) {
+        guard let data = rawValue.data(using: .utf8),
+              let result = try? JSONDecoder().decode([Element].self, from: data)
+        else {
+            return nil
+        }
+        self = result
+    }
+    public var rawValue: String {
+        guard let data = try? JSONEncoder().encode(self),
+              let result = String(data: data, encoding: .utf8)
+        else {
+            return "[]"
+        }
+        return result
     }
 }
