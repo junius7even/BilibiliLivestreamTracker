@@ -181,10 +181,10 @@ struct MainPageView: View {
             }
             
             // MARK: Settings tab
-            Text("设置")
+            Text("关于")
                 .tabItem {
-                    Image(systemName: "gear")
-                    Text("设置")
+                    Image(systemName: "questionmark.circle")
+                    Text("关于")
                 }
         }
     }
